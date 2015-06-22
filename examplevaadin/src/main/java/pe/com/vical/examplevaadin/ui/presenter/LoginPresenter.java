@@ -25,7 +25,6 @@ public class LoginPresenter extends LoginDesign implements ClickListener {
 	public void buttonClick(ClickEvent event) {
 		if(event.getButton().equals(btnIngresar)){
 			ingresar();
-			System.out.print("Hola mundo");
 		}
 	}
 	private void ingresar() {

@@ -1,24 +1,31 @@
 package pe.com.vical.examplevaadin.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import pe.com.vical.examplevaadin.dao.ISeguridadDao;
+import pe.com.vical.examplevaadin.domain.Usuario;
 import pe.com.vical.examplevaadin.service.ISeguridadService;
+import pe.com.vical.examplevaadin.util.Busqueda;
 
 @Service
 public class SeguridadServiceImpl implements ISeguridadService {
-
+	
+	@Autowired
+	private ISeguridadDao seguridadDao;
 	@Override
 	public boolean existeUsuario(String codigo) {
-		List<String> codigos = new ArrayList<String>();
-		codigos.add("vical001");
-		codigos.add("sakura001");
-		codigos.add("sasuke001");
-		codigos.add("naruto001");
-		int index = codigos.indexOf(codigo);
-		if(index != -1){
+		Busqueda busqueda = Busqueda.forClass(Usuario.class);
+		busqueda.add(Restrictions.eq("codigo", codigo));
+		List<Usuario> usuarios = seguridadDao.listar(busqueda);
+		Usuario usuario =null;
+		if(usuarios!=null){
+			usuario = usuarios.get(0);
+		}
+		if(usuario != null){
 			return true;
 		}
 		return false;

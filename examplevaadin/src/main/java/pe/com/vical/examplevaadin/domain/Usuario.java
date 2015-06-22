@@ -1,6 +1,18 @@
 package pe.com.vical.examplevaadin.domain;
 
-public class Usuario {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="USUARIO")
+public class Usuario implements Serializable{
+	private static final long serialVersionUID = 5468990232223787279L;
+	@Id
+	@Column(name="ID")
 	private Long id;
 	private String codigo;
 	private String nombre;
