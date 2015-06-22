@@ -16,7 +16,7 @@ import com.vaadin.ui.VerticalLayout;
  */
 @Theme("example")
 @SuppressWarnings("serial")
-public class MyVaadinUI extends UI{
+public class PrincipalUI extends UI{
 
 	private VerticalLayout mainLayout;
 	

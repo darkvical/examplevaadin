@@ -22,7 +22,7 @@
         <init-param>
             <description>Vaadin UI to display</description>
             <param-name>UI</param-name>
-            <param-value>pe.com.vical.examplevaadin.MyVaadinUI</param-value>
+            <param-value>pe.com.vical.examplevaadin.PrincipalUI</param-value>
         </init-param>
                 <init-param>
             <description>Application widgetset</description>
