@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8" name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;PAPER_WIDTH&quot;:830,&quot;PAPER_HEIGHT&quot;:373,&quot;PAPER_SCROLL_LEFT&quot;:2051,&quot;PAPER_SCROLL_TOP&quot;:2280,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;example&quot;}">
+ </head> 
+ <body> 
+  <v-vertical-layout size-full="true"> 
+   <v-panel size-auto="true" _id="pnlLogin" :middle="" :center=""> 
+    <v-vertical-layout spacing="true" size-auto="true" margin="true" _id="lytLogin"> 
+     <v-image _id="imgIcono"></v-image> 
+     <v-horizontal-layout _id="lytUsuario"> 
+      <v-label width="70px" plain-text="" _id="lblUsuario" :middle="">
+        Usuario: 
+      </v-label> 
+      <v-text-field _id="txtUsuario"></v-text-field> 
+     </v-horizontal-layout> 
+     <v-horizontal-layout _id="lytPassword"> 
+      <v-label width="70px" plain-text="" _id="lblPassword" :middle="">
+        Password: 
+      </v-label> 
+      <v-password-field _id="txtPassword"></v-password-field> 
+     </v-horizontal-layout> 
+     <v-horizontal-layout _id="lytAccion" :right=""> 
+      <v-button plain-text="" _id="btnIngresar">
+        Ingresar 
+      </v-button> 
+     </v-horizontal-layout> 
+    </v-vertical-layout> 
+   </v-panel> 
+  </v-vertical-layout>  
+ </body>
+</html>

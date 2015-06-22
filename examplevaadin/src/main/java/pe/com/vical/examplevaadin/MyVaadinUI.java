@@ -1,5 +1,7 @@
 package pe.com.vical.examplevaadin;
 
+import pe.com.vical.examplevaadin.ui.presenter.LoginPresenter;
+
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Button;
@@ -11,24 +13,31 @@ import com.vaadin.ui.VerticalLayout;
 /**
  * The Application's "main" class
  */
-@Theme("estilos")
+@Theme("example")
 @SuppressWarnings("serial")
-public class MyVaadinUI extends UI
-{
+public class MyVaadinUI extends UI{
 
+	private VerticalLayout mainLayout;
+	
     @Override
     protected void init(VaadinRequest request) {
-        final VerticalLayout layout = new VerticalLayout();
-        layout.setMargin(true);
-        setContent(layout);
-        
-        Button button = new Button("Click Me");
-        button.addClickListener(new Button.ClickListener() {
-            public void buttonClick(ClickEvent event) {
-                layout.addComponent(new Label("Thank you for clicking"));
-            }
-        });
-        layout.addComponent(button);
+    	buildMainLayout();
+    	mainLayout.addComponent(new LoginPresenter());
+        setContent(mainLayout);
     }
+    
+    private VerticalLayout buildMainLayout() {
+		// common part: create layout
+		mainLayout = new VerticalLayout();
+		mainLayout.setImmediate(true);
+		mainLayout.setWidth("100%");
+		mainLayout.setHeight("100%");
+		mainLayout.setMargin(false);
+		// top-level component properties
+		setWidth("100.0%");
+		setHeight("100%");
+
+		return mainLayout;
+	}
 
 }
