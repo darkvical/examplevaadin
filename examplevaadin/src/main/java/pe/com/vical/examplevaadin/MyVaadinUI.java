@@ -1,6 +1,7 @@
 package pe.com.vical.examplevaadin;
 
 import pe.com.vical.examplevaadin.ui.presenter.LoginPresenter;
+import pe.com.vical.examplevaadin.util.Inject;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
@@ -21,6 +22,7 @@ public class MyVaadinUI extends UI{
 	
     @Override
     protected void init(VaadinRequest request) {
+    	Inject.inject(this);
     	buildMainLayout();
     	mainLayout.addComponent(new LoginPresenter());
         setContent(mainLayout);
