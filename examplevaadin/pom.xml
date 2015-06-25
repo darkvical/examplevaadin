@@ -10,7 +10,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<vaadin.version>7.4.5</vaadin.version>
+		<vaadin.version>7.5.0</vaadin.version>
 		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
 		<spring.version>4.0.8.RELEASE</spring.version>
 		<hibernate.version>4.2.0.Final</hibernate.version>

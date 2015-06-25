@@ -12,10 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
-import pe.com.vical.examplevaadin.dao.BaseDAO;
+import pe.com.vical.examplevaadin.dao.IBaseDAO;
 import pe.com.vical.examplevaadin.util.Busqueda;
 
-public abstract class BaseDAOImpl<Entidad extends Serializable, Id extends Serializable> extends HibernateDaoSupport implements BaseDAO<Entidad, Id> {
+public abstract class BaseDAOImpl<Entidad extends Serializable, Id extends Serializable> extends HibernateDaoSupport implements IBaseDAO<Entidad, Id> {
 
 	private static final long serialVersionUID = -843202252066514168L;
 	

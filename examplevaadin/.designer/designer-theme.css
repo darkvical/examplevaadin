@@ -945,7 +945,7 @@
  */
 
 .v-vaadin-version:after {
-	content: "7.5.0.beta1";
+	content: "7.5.0.beta3";
 }
 
 .v-widget {
@@ -8679,10 +8679,16 @@ div.v-layout.v-horizontal.v-widget {
 
 .example .v-table-row {
 	background-color: white;
+	cursor: pointer;
 }
 
 .example .v-table-row-odd {
 	background-color: #f5f5f5;
+	cursor: pointer;
+}
+
+.example .v-table-body-noselection .v-table-row, .example .v-table-body-noselection .v-table-row-odd {
+	cursor: default;
 }
 
 .example .v-table [class*="-row"].v-selected {
@@ -11684,13 +11690,13 @@ div.v-layout.v-horizontal.v-widget {
 	padding: 19px 22px;
 }
 
-.example .v-Notification .#{$primary-stylename}-caption {
+.example .v-Notification .v-Notification-caption {
 	color: #197de1;
 	font-size: 19px;
 	line-height: 1;
 }
 
-.example .v-Notification .#{$primary-stylename}-description {
+.example .v-Notification .v-Notification-description {
 	line-height: 1.4;
 }
 
@@ -11737,7 +11743,7 @@ div.v-layout.v-horizontal.v-widget {
 	line-height: 22px;
 }
 
-.example .v-Notification-system .#{$primary-stylename}-description {
+.example .v-Notification-system .v-Notification-description {
 	max-width: 50em;
 }
 
@@ -11773,12 +11779,12 @@ div.v-layout.v-horizontal.v-widget {
 	animation: valo-animate-out-slide-down 200ms;
 }
 
-.example .v-Notification-system .#{$primary-stylename}-caption {
+.example .v-Notification-system .v-Notification-caption {
 	color: #fff;
 	vertical-align: middle;
 }
 
-.example .v-Notification-system .#{$primary-stylename}-description {
+.example .v-Notification-system .v-Notification-description {
 	color: #e6e6e6;
 }
 
@@ -11799,11 +11805,11 @@ div.v-layout.v-horizontal.v-widget {
 	background: #FFF3D2;
 }
 
-.example .v-Notification.warning .#{$primary-stylename}-caption {
+.example .v-Notification.warning .v-Notification-caption {
 	color: #AC7C00;
 }
 
-.example .v-Notification.warning .#{$primary-stylename}-description {
+.example .v-Notification.warning .v-Notification-description {
 	color: #9D874D;
 }
 
@@ -11814,11 +11820,11 @@ div.v-layout.v-horizontal.v-widget {
 	box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.25);
 }
 
-.example .v-Notification.error .#{$primary-stylename}-caption {
+.example .v-Notification.error .v-Notification-caption {
 	color: white;
 }
 
-.example .v-Notification.error .#{$primary-stylename}-description {
+.example .v-Notification.error .v-Notification-description {
 	color: #f4e0df;
 }
 
@@ -11829,12 +11835,12 @@ div.v-layout.v-horizontal.v-widget {
 	line-height: 22px;
 }
 
-.example .v-Notification.dark .#{$primary-stylename}-caption {
+.example .v-Notification.dark .v-Notification-caption {
 	color: #fff;
 	vertical-align: middle;
 }
 
-.example .v-Notification.dark .#{$primary-stylename}-description {
+.example .v-Notification.dark .v-Notification-description {
 	color: #e6e6e6;
 }
 
@@ -11849,7 +11855,7 @@ div.v-layout.v-horizontal.v-widget {
 	padding: 12px 15px;
 }
 
-.example .v-Notification.bar .#{$primary-stylename}-description {
+.example .v-Notification.bar .v-Notification-description {
 	max-width: 50em;
 }
 
@@ -11889,11 +11895,11 @@ div.v-layout.v-horizontal.v-widget {
 	padding: 11px 13px;
 }
 
-.example .v-Notification.small .#{$primary-stylename}-caption {
+.example .v-Notification.small .v-Notification-caption {
 	font-size: 16px;
 }
 
-.example .v-Notification.small .#{$primary-stylename}-description {
+.example .v-Notification.small .v-Notification-description {
 	font-size: 14px;
 }
 

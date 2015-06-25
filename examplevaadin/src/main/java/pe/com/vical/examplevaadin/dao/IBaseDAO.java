@@ -5,7 +5,7 @@ import java.util.List;
 
 import pe.com.vical.examplevaadin.util.Busqueda;
 
-public interface BaseDAO<Entidad, Id extends Serializable> extends Serializable {
+public interface IBaseDAO<Entidad, Id extends Serializable> extends Serializable {
 
 	/**
 	 * 
