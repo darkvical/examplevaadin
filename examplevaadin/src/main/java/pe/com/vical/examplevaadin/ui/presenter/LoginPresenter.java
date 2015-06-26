@@ -2,6 +2,8 @@ package pe.com.vical.examplevaadin.ui.presenter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import pe.com.vical.examplevaadin.PrincipalUI;
+import pe.com.vical.examplevaadin.base.BaseDesign;
 import pe.com.vical.examplevaadin.service.ISeguridadService;
 import pe.com.vical.examplevaadin.ui.desing.LoginDesign;
 import pe.com.vical.examplevaadin.util.Inject;
@@ -32,7 +34,7 @@ public class LoginPresenter extends LoginDesign implements ClickListener {
 		String password =txtPassword.getValue();
 		String codigo = usuario+password;
 		if(seguridadService.existeUsuario(codigo)){
-			System.out.print("Hola Vical");
+			BaseDesign.setContenido(new BandejaPresenter());
 		}
 	}
 
