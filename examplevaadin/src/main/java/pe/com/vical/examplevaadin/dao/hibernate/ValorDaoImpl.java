@@ -6,7 +6,7 @@ import pe.com.vical.examplevaadin.dao.IValorDao;
 import pe.com.vical.examplevaadin.domain.Valor;
 
 @Repository
-public class ValorDaoImpl extends BaseDAOImpl<Valor, Long> implements IValorDao {
+public class ValorDaoImpl extends BaseDAOImpl<Valor, Integer> implements IValorDao {
 	private static final long serialVersionUID = 4954710448103512219L;
 
 	@Override

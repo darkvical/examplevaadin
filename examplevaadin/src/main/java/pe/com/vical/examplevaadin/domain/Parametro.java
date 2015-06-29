@@ -4,10 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 @Entity
 @Table(name="PARAMETRO")
@@ -16,6 +19,9 @@ public class Parametro extends Auditor implements Serializable{
 	private static final long serialVersionUID = 8064148759144553664L;
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.TABLE, generator="SEQ_PARAMETRO")
+	@TableGenerator(name="SEQ_PARAMETRO", table="SECUENCIA", pkColumnName="CODIGO_TABLA", valueColumnName = "VALOR", 
+	pkColumnValue = "PARAMETRO", allocationSize = 1)
 	@Column(name="ID")
 	private Integer id;
 	private String codigo;

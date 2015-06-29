@@ -6,7 +6,7 @@ import pe.com.vical.examplevaadin.dao.ISeguridadDao;
 import pe.com.vical.examplevaadin.domain.Usuario;
 
 @Repository
-public class SeguridadServiceDaoImpl extends BaseDAOImpl<Usuario, Long> implements ISeguridadDao {
+public class SeguridadServiceDaoImpl extends BaseDAOImpl<Usuario, Integer> implements ISeguridadDao {
 	
 	private static final long serialVersionUID = -5441106036610294479L;
 

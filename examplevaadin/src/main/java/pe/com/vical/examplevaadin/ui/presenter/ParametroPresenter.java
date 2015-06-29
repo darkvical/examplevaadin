@@ -34,6 +34,7 @@ public class ParametroPresenter extends ParametroDesign implements ClickListener
 	private IConfiguracionService configuracionService;
 	private final static String CAPTION_GUARDAR = "Guardar";
 	private final static String CAPTION_MODIFICAR = "Modificar";
+	private Parametro parametro;
 	
 	public ParametroPresenter() {
 		super();
@@ -60,10 +61,11 @@ public class ParametroPresenter extends ParametroDesign implements ClickListener
 			private static final long serialVersionUID = 6225406373312224270L;
 			@Override
 			public void itemClick(ItemClickEvent event) {
-				Parametro parametro = (Parametro)event.getItemId();
+				parametro = null;
 				if(grdParametro.isSelected(event.getItemId())){
 					limpiar();
 				}else{
+					parametro = (Parametro)event.getItemId();
 					txtNombre.setValue(parametro.getNombre());
 					txtDescripcion.setValue(parametro.getDescripcion());
 					txtValor.setValue(parametro.getValor());
@@ -117,8 +119,23 @@ public class ParametroPresenter extends ParametroDesign implements ClickListener
 	}
 
 	private void guardar() {
-		// TODO Auto-generated method stub
-		
+		if(parametro != null){
+			parametro.setCodigo("VICA");
+			parametro.setNombre(txtNombre.getValue());
+			parametro.setDescripcion(txtDescripcion.getValue());
+			parametro.setValor(txtValor.getValue());
+			parametro.setEstado((Valor)cmbEstado.getValue());
+		}else{
+			parametro = new Parametro();
+			parametro.setCodigo("VICA");
+			parametro.setNombre(txtNombre.getValue());
+			parametro.setDescripcion(txtDescripcion.getValue());
+			parametro.setValor(txtValor.getValue());
+			parametro.setEstado((Valor)cmbEstado.getValue());
+		}
+		configuracionService.grabarParametro(parametro, BaseDesign.getUsuarioSession());
+		limpiar();
+		cargarTabla();
 	}
 
 	private void eliminar() {
@@ -129,7 +146,11 @@ public class ParametroPresenter extends ParametroDesign implements ClickListener
 			}			
 			@Override
 			public void aceptar(Button event, Window window) {
+				configuracionService.eliminar(parametro);
+				limpiar();
+				cargarTabla();
 				window.close();
+				
 			}
 		};
 		BaseDesign.mostrarConfirmacion(confirm, "¿Seguro que desea eliminar el registro?");
