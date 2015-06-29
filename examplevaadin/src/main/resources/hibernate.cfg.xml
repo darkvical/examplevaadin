@@ -9,6 +9,10 @@
 		<property name="show_sql">true</property>
 		<property name="format_sql">false</property>
 		<property name="use_sql_comments">true</property>
-		<mapping class="pe.com.vical.examplevaadin.domain.Usuario"/>		
+		<mapping class="pe.com.vical.examplevaadin.domain.Usuario"/>
+		<mapping class="pe.com.vical.examplevaadin.domain.Lista"/>
+		<mapping class="pe.com.vical.examplevaadin.domain.Parametro"/>
+		<mapping class="pe.com.vical.examplevaadin.domain.Valor"/>
+		<mapping class="pe.com.vical.examplevaadin.domain.Auditor"/>		
 	</session-factory>
 </hibernate-configuration>

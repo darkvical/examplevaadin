@@ -85,6 +85,12 @@
 			<scope>provided</scope>
 		</dependency>
 		
+		<dependency>
+		   <groupId>org.vaadin.addons</groupId>
+		   <artifactId>filteringtable</artifactId>
+		   <version>0.9.12.v7</version>
+		</dependency>
+		
 		<!-- 	Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

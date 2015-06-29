@@ -10,6 +10,7 @@ public class BandejaPresenter extends BandejaDesign implements ClickListener{
 	private static final long serialVersionUID = -557554551244197757L;
 	
 	public BandejaPresenter() {
+		super();
 		Inject.inject(this);
 	}
 

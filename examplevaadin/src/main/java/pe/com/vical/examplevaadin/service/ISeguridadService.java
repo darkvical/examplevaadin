@@ -1,7 +1,9 @@
 package pe.com.vical.examplevaadin.service;
 
+import pe.com.vical.examplevaadin.domain.Usuario;
+
 public interface ISeguridadService {
 
-	boolean existeUsuario(String codigo);
+	Usuario login(String codigo, String password);
 
 }
