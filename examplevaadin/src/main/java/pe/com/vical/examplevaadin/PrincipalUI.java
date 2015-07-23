@@ -2,13 +2,12 @@ package pe.com.vical.examplevaadin;
 
 import pe.com.vical.examplevaadin.base.BaseDesign;
 import pe.com.vical.examplevaadin.domain.Usuario;
+import pe.com.vical.examplevaadin.ui.presenter.BandejaPresenter;
 import pe.com.vical.examplevaadin.ui.presenter.LoginPresenter;
-import pe.com.vical.examplevaadin.ui.presenter.ParametroPresenter;
 import pe.com.vical.examplevaadin.util.Inject;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -31,7 +30,7 @@ public class PrincipalUI extends BaseDesign {
     private void validarSession() {
 		Usuario usuario = getUsuarioSession();
 		if(usuario !=null){
-			mainLayout.addComponent(new ParametroPresenter());
+			mainLayout.addComponent(new BandejaPresenter());
 		}else{
 			mainLayout.addComponent(new LoginPresenter());
 		}
