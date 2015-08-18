@@ -40,4 +40,6 @@ public interface IBaseDAO<Entidad, Id extends Serializable> extends Serializable
 	 * @return
 	 */
 	List<Entidad> listar(Busqueda busqueda);
+	
+	<T> List<T> proyectar(Busqueda busqueda);
 }

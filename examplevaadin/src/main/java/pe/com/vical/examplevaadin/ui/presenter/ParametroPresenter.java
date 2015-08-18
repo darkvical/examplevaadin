@@ -40,6 +40,7 @@ public class ParametroPresenter extends ParametroDesign implements ClickListener
 		super();
 		Inject.inject(this);
 		cargarFormulario();
+		configuracionService.parametroTop(10);
 	}
 
 	private void cargarFormulario() {

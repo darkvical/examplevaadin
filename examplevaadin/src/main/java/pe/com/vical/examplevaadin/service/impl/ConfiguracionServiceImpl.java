@@ -1,9 +1,15 @@
 package pe.com.vical.examplevaadin.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.ProjectionList;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.type.DateType;
+import org.hibernate.type.Type;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +61,28 @@ public class ConfiguracionServiceImpl implements IConfiguracionService {
 	@Transactional
 	public void eliminar(Parametro parametro) {
 		parametroDao.eliminar(parametro.getId());
+	}
+	
+	public List<Parametro> parametroTop(Integer cantidad){
+		List<Parametro> parametros = new ArrayList<Parametro>();
+		Busqueda busqueda = Busqueda.forClass(Parametro.class);
+		ProjectionList projection = Projections.projectionList();
+		projection.add(Projections.property("id"));
+		projection.add(Projections.sqlProjection("case when edicion is not null then (edicion) else (creacion) end as fechaFiltro", new String[]{"fechaFiltro"}, new Type[]{DateType.INSTANCE}), "fechaFiltro");
+		busqueda.setProjection(projection);
+		busqueda.addOrder(Order.desc("fechaFiltro"));
+		List<Object> resultados = parametroDao.proyectar(busqueda);
+		List<Long> ids = new ArrayList<Long>();		
+		for (Object object : resultados) {
+			Object[] resultado = (Object[]) object;
+			ids.add((Long) resultado[0]);
+		}
+		if(!ids.isEmpty()){
+			Busqueda busParametro = Busqueda.forClass(Parametro.class);
+			busParametro.add(Restrictions.in("id", ids));
+			parametros = parametroDao.listar(busParametro);
+		}
+		return parametros;
 	}
 
 }

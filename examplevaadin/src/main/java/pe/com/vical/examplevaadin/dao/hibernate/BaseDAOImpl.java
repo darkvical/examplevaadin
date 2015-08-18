@@ -75,5 +75,20 @@ public abstract class BaseDAOImpl<Entidad extends Serializable, Id extends Seria
 	                }
 				});
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> List<T> proyectar(final Busqueda busqueda){
+		return (List<T>) this.getHibernateTemplate().executeWithNativeSession(
+                new HibernateCallback<List<T>>() {
+					public List<T> doInHibernate(Session session){
+                        Criteria criteria = busqueda.getExecutableCriteria(session);
+                        criteria.setFirstResult(busqueda.getFirstResult());
+                        if (busqueda.getMaxResults() > 0) {
+                            criteria.setMaxResults(busqueda.getMaxResults());
+                        }
+                        return (List<T>) criteria.list();
+                    }
+                });
+	}
 }

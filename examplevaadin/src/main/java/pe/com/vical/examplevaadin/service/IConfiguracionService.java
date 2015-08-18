@@ -12,4 +12,5 @@ public interface IConfiguracionService {
 	List<Valor> listarValores(String codigoLista);
 	void grabarParametro(Parametro parametro, Usuario auditor);
 	void eliminar(Parametro parametro);
+	List<Parametro> parametroTop(Integer cantidad);
 }
