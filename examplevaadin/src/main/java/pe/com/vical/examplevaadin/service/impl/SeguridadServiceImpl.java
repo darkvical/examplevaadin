@@ -16,19 +16,17 @@ public class SeguridadServiceImpl implements ISeguridadService {
 	
 	@Autowired
 	private ISeguridadDao seguridadDao;
+	
 	@Override
-	public boolean existeUsuario(String codigo) {
+	public Usuario login(String codigo, String password) {
 		Busqueda busqueda = Busqueda.forClass(Usuario.class);
 		busqueda.add(Restrictions.eq("codigo", codigo));
+		busqueda.add(Restrictions.eq("password", password));
 		List<Usuario> usuarios = seguridadDao.listar(busqueda);
 		Usuario usuario =null;
-		if(usuarios!=null){
+		if(usuarios != null && usuarios.size() > 0){
 			usuario = usuarios.get(0);
 		}
-		if(usuario != null){
-			return true;
-		}
-		return false;
+		return usuario;
 	}
-
 }

@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="USUARIO")
@@ -18,6 +19,8 @@ public class Usuario implements Serializable{
 	private String nombre;
 	private String paterno;
 	private String materno;
+	private String password;
+	@Transient
 	private Integer edad;
 	
 	public Long getId() {
@@ -55,5 +58,11 @@ public class Usuario implements Serializable{
 	}
 	public void setEdad(Integer edad) {
 		this.edad = edad;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

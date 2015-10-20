@@ -1,14 +1,13 @@
 package pe.com.vical.examplevaadin;
 
+import pe.com.vical.examplevaadin.base.BaseDesign;
+import pe.com.vical.examplevaadin.domain.Usuario;
+import pe.com.vical.examplevaadin.ui.presenter.BandejaPresenter;
 import pe.com.vical.examplevaadin.ui.presenter.LoginPresenter;
 import pe.com.vical.examplevaadin.util.Inject;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -16,7 +15,7 @@ import com.vaadin.ui.VerticalLayout;
  */
 @Theme("example")
 @SuppressWarnings("serial")
-public class PrincipalUI extends UI{
+public class PrincipalUI extends BaseDesign {
 
 	private VerticalLayout mainLayout;
 	
@@ -24,11 +23,20 @@ public class PrincipalUI extends UI{
     protected void init(VaadinRequest request) {
     	Inject.inject(this);
     	buildMainLayout();
-    	mainLayout.addComponent(new LoginPresenter());
-        setContent(mainLayout);
+    	setContent(mainLayout);
+        validarSession();
     }
     
-    private VerticalLayout buildMainLayout() {
+    private void validarSession() {
+		Usuario usuario = getUsuarioSession();
+		if(usuario !=null){
+			mainLayout.addComponent(new BandejaPresenter());
+		}else{
+			mainLayout.addComponent(new LoginPresenter());
+		}
+	}
+
+	private VerticalLayout buildMainLayout() {
 		// common part: create layout
 		mainLayout = new VerticalLayout();
 		mainLayout.setImmediate(true);

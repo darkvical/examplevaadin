@@ -12,10 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
-import pe.com.vical.examplevaadin.dao.BaseDAO;
+import pe.com.vical.examplevaadin.dao.IBaseDAO;
 import pe.com.vical.examplevaadin.util.Busqueda;
 
-public abstract class BaseDAOImpl<Entidad extends Serializable, Id extends Serializable> extends HibernateDaoSupport implements BaseDAO<Entidad, Id> {
+public abstract class BaseDAOImpl<Entidad extends Serializable, Id extends Serializable> extends HibernateDaoSupport implements IBaseDAO<Entidad, Id> {
 
 	private static final long serialVersionUID = -843202252066514168L;
 	
@@ -75,5 +75,20 @@ public abstract class BaseDAOImpl<Entidad extends Serializable, Id extends Seria
 	                }
 				});
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> List<T> proyectar(final Busqueda busqueda){
+		return (List<T>) this.getHibernateTemplate().executeWithNativeSession(
+                new HibernateCallback<List<T>>() {
+					public List<T> doInHibernate(Session session){
+                        Criteria criteria = busqueda.getExecutableCriteria(session);
+                        criteria.setFirstResult(busqueda.getFirstResult());
+                        if (busqueda.getMaxResults() > 0) {
+                            criteria.setMaxResults(busqueda.getMaxResults());
+                        }
+                        return (List<T>) criteria.list();
+                    }
+                });
+	}
 }
