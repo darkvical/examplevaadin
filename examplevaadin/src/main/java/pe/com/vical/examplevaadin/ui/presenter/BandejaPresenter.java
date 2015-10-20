@@ -22,7 +22,8 @@ public class BandejaPresenter extends BandejaDesign implements ClickListener {
 	
 	private void cargarFormulario() {
 		btnSalir.addClickListener(this);
-		cssContenido.addComponent(new ParametroPresenter());
+		cssContenido.addComponent(new GridPresenter());
+//		cssContenido.addComponent(new ParametroPresenter());
 	}
 
 	@Override

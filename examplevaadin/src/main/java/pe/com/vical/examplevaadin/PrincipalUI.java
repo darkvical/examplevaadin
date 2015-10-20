@@ -3,6 +3,7 @@ package pe.com.vical.examplevaadin;
 import pe.com.vical.examplevaadin.base.BaseDesign;
 import pe.com.vical.examplevaadin.domain.Usuario;
 import pe.com.vical.examplevaadin.ui.presenter.BandejaPresenter;
+import pe.com.vical.examplevaadin.ui.presenter.GridPresenter;
 import pe.com.vical.examplevaadin.ui.presenter.LoginPresenter;
 import pe.com.vical.examplevaadin.util.Inject;
 
@@ -32,7 +33,8 @@ public class PrincipalUI extends BaseDesign {
 		if(usuario !=null){
 			mainLayout.addComponent(new BandejaPresenter());
 		}else{
-			mainLayout.addComponent(new LoginPresenter());
+			mainLayout.addComponent(new GridPresenter());
+//			mainLayout.addComponent(new LoginPresenter());
 		}
 	}
 
